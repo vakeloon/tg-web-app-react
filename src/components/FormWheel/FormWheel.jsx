@@ -10,41 +10,51 @@ const FormWheel = () => {
     useEffect(() => {
         tg.MainButton.setParams({
             text: "Take a prize",
-        })
+        });
     }, [tg]);
 
     useEffect(() => {
-        document.querySelectorAll('.color-button').forEach(button => {
+        const colorButtons = document.querySelectorAll('.color-button');
+        colorButtons.forEach(button => {
             button.addEventListener('click', function () {
                 const color = this.getAttribute('data-color');
                 setSelectedColor(color);
-                document.querySelectorAll('.color-button').forEach(btn => btn.classList.remove('selected'));
+                colorButtons.forEach(btn => btn.classList.remove('selected'));
                 this.classList.add('selected');
             });
         });
 
-        document.getElementById('spin-button').addEventListener('click', function () {
+        return () => {
+            colorButtons.forEach(button => {
+                button.removeEventListener('click', function () {});
+            });
+        };
+    }, []);
+
+    useEffect(() => {
+        const spinButton = document.getElementById('spin-button');
+        const handleSpinClick = () => {
             if (!selectedColor) {
                 tg.showAlert("Please select a color before spinning the wheel.");
                 return;
             }
 
             const wheel = document.getElementById('color-wheel');
-            const randomSpin = 360 * 30 + Math.floor(Math.random() * 360); // Случайный угол вращения от 0 до 360, добавляя несколько полных оборотов
+            const randomSpin = 360 * 30 + Math.floor(Math.random() * 360);
             const startAngle = currentAngle;
             const endAngle = currentAngle + randomSpin;
 
             wheel.style.setProperty('--start-angle', `${startAngle}deg`);
             wheel.style.setProperty('--end-angle', `${endAngle}deg`);
 
-            wheel.classList.remove('spin'); // Удалить класс, если он был добавлен ранее
-            void wheel.offsetWidth; // Переместить положение DOM, чтобы перезапустить анимацию
-            wheel.classList.add('spin'); // Добавить класс для запуска анимации
+            wheel.classList.remove('spin');
+            void wheel.offsetWidth;
+            wheel.classList.add('spin');
 
-            setCurrentAngle(endAngle % 360); // Обновить текущий угол, сохраняя его в диапазоне 0-359 градусов
+            setCurrentAngle(endAngle % 360);
 
             setTimeout(() => {
-                const winningColor = getWinningColor(currentAngle);
+                const winningColor = getWinningColor(endAngle % 360);
                 const prizeMessage = document.getElementById('prize-message');
                 const colorMessage = document.getElementById('color-message');
                 let color = "#000";
@@ -76,17 +86,23 @@ const FormWheel = () => {
                 document.body.style.backgroundColor = color;
                 colorMessage.textContent = `${winningColor}`;
                 prizeMessage.textContent = winningColor === selectedColor ? `You won a prize!` : `You lose!`;
-            }, 7000); // Wait for the spin animation to complete (4 seconds)
-        });
+            }, 7000);
+        };
 
-        function getWinningColor(angle) {
-            const sectorSize = 60; // Assuming there are 6 sectors, each covering 60 degrees
-            const sectors = ["purple", "green", "red", "orange", "yellow", "blue"];
-            const adjustedAngle = (360 - angle + sectorSize / 2) % 360; // Adjust angle to match the sectors
-            const sectorIndex = Math.floor(adjustedAngle / sectorSize);
-            return sectors[sectorIndex];
-        }
-    }, [currentAngle, selectedColor]);
+        spinButton.addEventListener('click', handleSpinClick);
+
+        return () => {
+            spinButton.removeEventListener('click', handleSpinClick);
+        };
+    }, [selectedColor, currentAngle, tg]);
+
+    function getWinningColor(angle) {
+        const sectorSize = 60;
+        const sectors = ["purple", "green", "red", "orange", "yellow", "blue"];
+        const adjustedAngle = (360 - angle + sectorSize / 2) % 360;
+        const sectorIndex = Math.floor(adjustedAngle / sectorSize);
+        return sectors[sectorIndex];
+    }
 
     return (
         <div className={"formWheel"}>
