@@ -8,10 +8,10 @@ const Header = () => {
 
     return (
         <div className={'header'}>
-            <span className={'username'}>
-                {user?.username}
-            </span>
-            {/*<span className={'username'}>vakeloon</span>*/}
+            {/*<span className={'username'}>*/}
+            {/*    {user?.username}*/}
+            {/*</span>*/}
+            <span className={'username'}>vakeloon</span>
             <Button onClick={onClose}>Close</Button>
         </div>
     );
