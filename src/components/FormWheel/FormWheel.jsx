@@ -25,7 +25,7 @@ const FormWheel = () => {
 
         document.getElementById('spin-button').addEventListener('click', function () {
             if (!selectedColor) {
-                alert("Please select a color before spinning the wheel.");
+                tg.showAlert("Please select a color before spinning the wheel.");
                 return;
             }
 
