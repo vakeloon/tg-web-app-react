@@ -8,7 +8,6 @@
 }
 
 h1 {
-    color: #fff;
     text-align: center;
     margin-top: 30px;
     margin-bottom: 30px;
@@ -122,6 +121,5 @@ h1 {
 }
 
 #prize-message, #color-message {
-    color: #fff;
     text-align: center;
 }
