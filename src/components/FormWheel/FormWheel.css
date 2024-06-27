@@ -22,17 +22,16 @@ h1 {
 }
 
 #spin-button {
-    outline: none;
     border: none;
-    padding: 20px;
     border-radius: 60px;
+    box-shadow: 0 7px 0 #15fc89;
     display: block;
-    margin: 0 auto;
-    width: 300px;
-    font-size: 1.5em;
-    box-shadow: 0 10px 0 #15fc89;
-    transition: all 0.3s;
-    margin-bottom: 30px;
+    font-size: 1em;
+    margin: 0 auto 40px;
+    outline: none;
+    padding: 15px;
+    transition: all .3s;
+    width: 70%;
 }
 
 #spin-button:hover {
