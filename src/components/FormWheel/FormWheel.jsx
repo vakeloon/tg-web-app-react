@@ -1,7 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './FormWheel.css'
+import {useTelegram} from "../../hooks/useTelegram";
 
 const FormWheel = () => {
+
+    const {tg} = useTelegram();
+
+    useEffect(() => {
+        tg.MainButton.setParams({
+            text: "Take a prize",
+        })
+    }, [])
+
     return (
         <div className={"formWheel"}>
             <div className={"colors"}>
@@ -14,8 +24,8 @@ const FormWheel = () => {
                 <button className={"color-button green"} data-color="green"></button>
             </div>
             <div className="wheel-container">
-                <img id="color-wheel" src="./color-wheel.png" alt="Color Wheel"/>
-                <img className={"arrow"} src="./right-arrow.png" alt="Arrow"/>
+                <img id="color-wheel" src="/images/color-wheel.png" alt="Color Wheel"/>
+                <img className={"arrow"} src="/images/right-arrow.png" alt="Arrow"/>
             </div>
             <button id="spin-button">Spin the wheel</button>
             <div id="result-message">

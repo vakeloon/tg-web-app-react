@@ -19,6 +19,7 @@ function App() {
         <Routes>
             <Route index element={<FormWheel />} />
         </Routes>
+        <Header/>
     </div>
   );
 }
