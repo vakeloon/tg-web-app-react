@@ -11,21 +11,9 @@ function App() {
     const {onToggleButton, tg} = useTelegram();
 
     useEffect(() => {
-        console.log('Initializing Telegram Web App...');
-        if (tg.ready) {
-            tg.ready();
-            console.log('Telegram Web App is ready.');
-        } else {
-            console.log('Telegram Web App ready method is not available.');
-        }
-
-        if (tg.expand) {
-            tg.expand();
-            console.log('Telegram Web App is expanded.');
-        } else {
-            console.log('Telegram Web App expand method is not available.');
-        }
-    }, [tg]);
+        tg.ready();
+        tg.expand();
+    }, [tg])
 
   return (
     <div className="App">
