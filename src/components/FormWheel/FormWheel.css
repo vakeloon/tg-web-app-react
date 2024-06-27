@@ -137,4 +137,7 @@ h1 {
         width: 40px;
         height: 40px;
     }
+    .arrow {
+        width: 60px;
+    }
 }
