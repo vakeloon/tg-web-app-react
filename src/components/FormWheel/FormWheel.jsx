@@ -119,7 +119,7 @@ const FormWheel = () => {
                 <img id="color-wheel" src="/images/color-wheel.png" alt="Color Wheel"/>
                 <img className={"arrow"} src="/images/right-arrow.png" alt="Arrow"/>
             </div>
-            <button id="spin-button">Spin the wheel</button>
+            <button id="spin-button">Spin the wheel (-1⭐)</button>
         </div>
     );
 };
