@@ -124,3 +124,10 @@ h1 {
 #prize-message, #color-message {
     text-align: center;
 }
+
+@media (max-height: 687px) {
+    #color-wheel {
+        max-width: 200px;
+        max-height: 200px;
+    }
+}
