@@ -88,7 +88,6 @@ const FormWheel = () => {
         }
     }, [currentAngle, selectedColor]);
 
-
     return (
         <div className={"formWheel"}>
             <div className={"colors"}>
@@ -105,10 +104,6 @@ const FormWheel = () => {
                 <img className={"arrow"} src="/images/right-arrow.png" alt="Arrow"/>
             </div>
             <button id="spin-button">Spin the wheel</button>
-            <div id="result-message">
-                <div id="color-message"></div>
-                <div id="prize-message"></div>
-            </div>
         </div>
     );
 };

@@ -5,7 +5,10 @@ import Button from "../Button/Button";
 const Footer = () => {
     return (
         <div className={'footer'}>
-            Here is the prize text
+            <div id="result-message">
+                <div id="color-message"></div>
+                <div id="prize-message"></div>
+            </div>
         </div>
     );
 };
