@@ -7,22 +7,23 @@ import {useNavigate} from "react-router-dom";
 const BuyStars = () => {
 
     const navigate = useNavigate();
-
     const handleButtonClick = () => {
         navigate('/');
     };
 
+    const {user} = useTelegram();
+
     const handleBuyButtonClick = async () => {
         try {
-            const response = await fetch('\'https://gregarious-mousse-656ffc.netlify.app/create-invoice', {
+            const response = await fetch('/create-invoice', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    chatId: 'YOUR_CHAT_ID', // Замените на актуальный chatId пользователя
+                    chatId: `${user?.id}`, // Замените на актуальный chatId пользователя
                     amount: 100, // сумма в минимальных единицах валюты (например, 1.00 = 100)
-                    label: 'Deposit 1 star',
+                    label: 'Deposit 100 star',
                 }),
             });
 
@@ -63,7 +64,7 @@ const BuyStars = () => {
                 </div>
                 <div className={'buy-item'}>
                     <h3>Buy 100⭐ package</h3>
-                    <button className={'buy-button'}>Buy</button>
+                    <button className={'buy-button'} onClick={handleBuyButtonClick}>Buy</button>
                 </div>
                 <div className={'buy-item'}>
                     <h3>Buy 200⭐ package</h3>

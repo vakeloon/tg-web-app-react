@@ -8,7 +8,6 @@ const Header = () => {
     const {user, onClose} = useTelegram();
 
     const navigate = useNavigate();
-
     const handleButtonClick = () => {
         navigate('/buyStars');
     };
