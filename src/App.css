@@ -47,3 +47,29 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+
+.box {
+  flex-grow: 1;
+  flex-direction: column;
+  max-width: 450px;
+  max-height: 700px;
+  width: 90%;
+  background: #221a30;
+  border-radius: 30px;
+  /*overflow: hidden;*/
+  overflow: scroll;
+}
+
+.back-button {
+  border: none;
+  border-radius: 60px;
+  box-shadow: 0 7px 0 #c42254;
+  display: block;
+  font-size: 0.8em;
+  margin: 0 auto 30px;
+  outline: none;
+  padding: 15px;
+  transition: all .3s;
+  width: 50%;
+  background-color: #aa1d50;
+}

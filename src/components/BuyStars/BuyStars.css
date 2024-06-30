@@ -1,0 +1,26 @@
+.buy-block {
+    margin: 20px 5%;
+}
+
+.buy-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 10px
+}
+
+.buy-button {
+    border: none;
+    border-radius: 60px;
+    box-shadow: 0 5px 0 #15fc89;
+    display: block;
+    /* margin: 10px auto 20px; */
+    outline: none;
+    padding: 10px;
+    transition: all .3s;
+    width: 30%;
+    font-size: 0.8em;
+}
+
+h3 {
+    padding: 10px 0;
+}

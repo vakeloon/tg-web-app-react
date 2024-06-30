@@ -5,6 +5,8 @@ import Header from "./components/Header/Header";
 import {Route, Routes} from "react-router-dom";
 import FormWheel from "./components/FormWheel/FormWheel";
 import Footer from "./components/Footer/Footer";
+import MainPage from "./components/MainPage/MainPage";
+import BuyStars from "./components/BuyStars/BuyStars";
 
 
 function App() {
@@ -19,7 +21,9 @@ function App() {
     <div className="App">
         <Header/>
         <Routes>
-            <Route index element={<FormWheel />} />
+            <Route index element={<MainPage />} />
+            <Route path={'buyStars'} element={<BuyStars />} />
+            <Route path={'wheel'} element={<FormWheel />} />
         </Routes>
         <Footer/>
     </div>

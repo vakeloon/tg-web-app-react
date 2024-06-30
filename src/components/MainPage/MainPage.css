@@ -1,0 +1,41 @@
+.games {
+    margin: 30px 5%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.game {
+    border: 2px solid #a5fdd5;
+    border-radius: 40px;
+    width: 40%;
+    height: fit-content;
+    margin: 5%;
+}
+
+.img-game {
+    width: 80%;
+    height: 80%;
+    margin: 10% 10%;
+    display: block;
+}
+
+h4 {
+    margin: 20px 20px 10px;
+    text-align: center;
+}
+
+.play-button {
+    border: none;
+    border-radius: 60px;
+    box-shadow: 0 5px 0 #15fc89;
+    display: block;
+    margin: 10px auto 20px;
+    outline: none;
+    padding: 15px;
+    transition: all .3s;
+    width: 70%;
+}

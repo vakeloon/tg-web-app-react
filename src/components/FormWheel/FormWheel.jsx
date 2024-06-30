@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './FormWheel.css'
 import {useTelegram} from "../../hooks/useTelegram";
+import {useNavigate} from "react-router-dom";
 
 const FormWheel = () => {
     const {tg} = useTelegram();
@@ -104,8 +105,14 @@ const FormWheel = () => {
         return sectors[sectorIndex];
     }
 
+    const navigate = useNavigate();
+
+    const handleButtonClick = () => {
+        navigate('/');
+    };
+
     return (
-        <div className={"formWheel"}>
+        <div className={"box"}>
             <div className={"colors"}>
                 <h1>Guess the color</h1>
                 <button className={"color-button red"} data-color="red"></button>
@@ -120,6 +127,7 @@ const FormWheel = () => {
                 <img className={"arrow"} src="/images/right-arrow.png" alt="Arrow"/>
             </div>
             <button id="spin-button">Spin the wheel (-1⭐)</button>
+            <button className={'back-button'} onClick={handleButtonClick}>Back To Games</button>
         </div>
     );
 };
